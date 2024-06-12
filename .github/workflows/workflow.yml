@@ -1,0 +1,17 @@
+name: Workflow Dispatch Example
+on:
+ workflow_dispatch:
+   inputs:
+     username:
+       description: 'Your username'
+       required: true
+     favorite_color:
+       description: 'Your favorite color'
+       required: true
+jobs:
+ greet-user:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Greet User
+       run: |
+         echo "${{ inputs.username }} says hello, and favorite color is ${{ inputs.favorite_color }}"
